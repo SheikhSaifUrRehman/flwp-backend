@@ -228,7 +228,6 @@ router.post('/accept-cancel', async (req, res, next) => {
     const bid = await Bid.findByIdAndUpdate(bid_id, { status });
 
     const user = await User.findById(user_id);
-    console.log(`user`, user);
 
     const notification = await Notification.create({
       title: 'Your bidding request got ' + status,
@@ -242,13 +241,16 @@ router.post('/accept-cancel', async (req, res, next) => {
     user.notifications.push(notification._id);
     await user.save();
 
-    const userRequest = await UserRequest.findById(userRequest_id);
-    for (let i = 0; i < userRequest.bids.length; i++) {
-      let bidId = userRequest.bids[i];
-      if (bid_id != bidId) {
-        await Bid.findByIdAndUpdate(bidId, { status: "Rejected" });
+    if (status == "Accepted") {
+      const userRequest = await UserRequest.findById(userRequest_id);
+      for (let i = 0; i < userRequest.bids.length; i++) {
+        let bidId = userRequest.bids[i];
+        if (bid_id != bidId) {
+          await Bid.findByIdAndUpdate(bidId, { status: "Rejected" });
+        }
       }
     }
+
     res.status(200).send({ bid });
   } catch (err) {
     console.log(err);

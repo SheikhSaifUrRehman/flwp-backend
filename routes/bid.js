@@ -249,6 +249,7 @@ router.post('/accept-cancel', async (req, res, next) => {
           await Bid.findByIdAndUpdate(bidId, { status: "Rejected" });
         }
       }
+      await UserRequest.findByIdAndUpdate(userRequest_id, { isStopped: true });
     }
 
     res.status(200).send({ bid });

@@ -1,0 +1,11 @@
+{
+  "mongoURI": "mongodb+srv://saif:99SkgiHFMtbUYjGj@fyp.fzjjvlx.mongodb.net/?retryWrites=true&w=majority",
+  "jwtPrivateKey": "ade27ddef18daa87909c069001cbf60a5baabaa51664a63ddc549e822bed60a8",
+  "jwtPrivateKeyRefresh": "112089dc04a6a4a9c9f9bbe9d5c11fadfae948a841f9ff1105596a2d06a87073",
+  "jwtAdminPrivateKey": "ffa3e9740ad2d2f1e1cf9a1d4d1003160b2f15c6e3189733a432e18a71de6d9d",
+  "jwtAdminPrivateKeyRefresh": "ffa3e9740ad2d2f1e1cf9a1d4d1003160b2f15c6e3189733a432e18a71de6d9d",
+  "mailKey": "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",
+  "cloudinary_cloud_name": "smurftec",
+  "cloudinary_api_key": "191369675162366",
+  "cloudinary_api_secret": "AcCbj49Cw_04tq6MFk5ErhvacLQ"
+}
